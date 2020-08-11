@@ -1,6 +1,6 @@
 ## Download the dependencies
 ```npm install```
-#### It downloads the necessary packages to run this application like express.js and body-parser.
+#### It downloads the necessary packages to run this application like express.js, body-parser, mocha, chai etc.
 
 ## How to run the application?
 ```node index.js```
