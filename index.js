@@ -6,6 +6,10 @@ const port = 3000
 var app = express()
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+    res.send({"test":"S"})
+})
+
 app.post('/', async (req, res) => {
     try {
         var replacer = function (data, ref) {
@@ -20,15 +24,19 @@ app.post('/', async (req, res) => {
 
         var transformedPayload = await replacer(JSON.stringify(req.body.payload), req.body.referenceData);
         res.send(JSON.parse(transformedPayload))
-        
+
     } catch (error) {
+        console.log(error)
         res.send({
             "status": "failure"
         })
     }
 })
 
+if (!module.parent) {
+    app.listen(port, () => {
+        console.log(`Listening at http://localhost:${port}`)
+    })
+}
 
-app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`)
-})
+module.exports = app;
