@@ -4,3 +4,7 @@
 
 ## How to run the application?
 ```node index.js```
+
+## How to run unit test case?
+#### Go to the project location in the command prompt and type the below command.
+```mocha```
